@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, Zap, Shield, Banknote, FileText, Cpu, Building2, Mail, Phone } from "lucide-react";
+import { Check, Zap, Shield, Banknote, FileText, Cpu, Building2, Mail, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -15,7 +15,7 @@ export default function Landing() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <a href="#home" className="flex items-center gap-2">
             <span className="inline-block h-3 w-3 rounded-full bg-emerald-400" />
-            <span className="font-semibold tracking-tight">Colin Automations</span>
+            <span className="font-semibold tracking-tight">Digital Creations (windsor)</span>
           </a>
           <nav className="hidden gap-6 text-sm md:flex">
             <a href="#services" className="hover:text-emerald-400">Services</a>
@@ -36,9 +36,9 @@ export default function Landing() {
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60rem_30rem_at_top,rgba(16,185,129,.15),transparent)]" />
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-20 md:grid-cols-2 md:py-28">
           <div className="flex flex-col justify-center">
-            <motion.h1 initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:.5}} className="text-4xl font-extrabold leading-tight md:text-5xl">
+            <h1 className="text-4xl font-extrabold leading-tight md:text-5xl">
               We build AI that does your busywork.
-            </motion.h1>
+            </h1>
             <p className="mt-4 max-w-prose text-neutral-300">
               Stop wasting hours on invoicing, filing, and posting. We connect your tools to an AI that
               <span className="text-emerald-400"> pulls, files, writes, and ships</span>—so you can work on the work that pays.
@@ -72,7 +72,7 @@ export default function Landing() {
             {/* Offer 1: Bookkeeping Automation */}
             <Card className="border-neutral-800 bg-neutral-900/40">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl">
+                <CardTitle className="flex items-center gap-2 text-xl text-white">
                   <FileText className="h-5 w-5 text-emerald-400" /> AI Bookkeeping Assistant
                 </CardTitle>
               </CardHeader>
@@ -87,8 +87,8 @@ export default function Landing() {
             {/* Offer 2: Real Estate Content Machine */}
             <Card className="border-neutral-800 bg-neutral-900/40">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl">
-                  <Building2 className="h-5 w-5 text-emerald-400" /> Real Estate Content Machine
+                <CardTitle className="flex items-center gap-2 text-xl text-white">
+                  <Building2 className="h-5 w-5 text-neutral-400" /> Real Estate Content Machine
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3 text-neutral-300">
@@ -111,10 +111,10 @@ export default function Landing() {
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card className="border-neutral-800 bg-neutral-900/60">
               <CardHeader>
-                <CardTitle className="text-xl">Bookkeeping Assistant</CardTitle>
+                <CardTitle className="text-xl text-white">Bookkeeping Assistant</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-4xl font-extrabold">$99<span className="text-base font-semibold text-neutral-400">/mo</span></div>
+                <div className="text-4xl font-extrabold"><span className="text-emerald-400">$99</span><span className="text-base font-semibold text-neutral-400">/mo</span></div>
                 <div className="mt-1 text-neutral-400">+$199 one‑time setup</div>
                 <ul className="mt-4 space-y-2 text-neutral-300">
                   <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400"/>Stripe/PayPal connectors</li>
@@ -129,10 +129,10 @@ export default function Landing() {
 
             <Card className="border-neutral-800 bg-neutral-900/60">
               <CardHeader>
-                <CardTitle className="text-xl">RE Content Machine</CardTitle>
+                <CardTitle className="text-xl text-white">RE Content Machine</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-4xl font-extrabold">$399<span className="text-base font-semibold text-neutral-400">/mo</span></div>
+                <div className="text-4xl font-extrabold"><span className="text-emerald-400">$399</span><span className="text-base font-semibold text-neutral-400">/mo</span></div>
                 <div className="mt-1 text-neutral-400">+$299 one‑time setup</div>
                 <ul className="mt-4 space-y-2 text-neutral-300">
                   <li className="flex items-center gap-2"><Check className="h-4 w-4 text-emerald-400"/>Auto posts to IG/FB/LinkedIn</li>
@@ -163,7 +163,7 @@ export default function Landing() {
             ].map((k, i) => (
               <Card key={i} className="border-neutral-800 bg-neutral-900/40">
                 <CardHeader>
-                  <CardTitle className="text-lg">{k.title}</CardTitle>
+                  <CardTitle className="text-lg text-white">{k.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-3xl font-extrabold text-emerald-400">{k.stat}</div>
@@ -197,7 +197,7 @@ export default function Landing() {
           <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card className="border-neutral-800 bg-neutral-900/50">
               <CardHeader>
-                <CardTitle className="text-lg">Book a call</CardTitle>
+                <CardTitle className="text-lg text-white">Book a call</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-neutral-300">15‑minute fit check. No pressure. Bring your tools list.</p>
@@ -209,13 +209,17 @@ export default function Landing() {
 
             <Card className="border-neutral-800 bg-neutral-900/50">
               <CardHeader>
-                <CardTitle className="text-lg">Email us</CardTitle>
+                <CardTitle className="text-lg text-white">Email us</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-neutral-300">Prefer email? Send your stack + goal and we’ll respond same day.</p>
                 <div className="flex flex-col gap-3 text-neutral-300">
-                  <span className="flex items-center gap-2"><Mail className="h-4 w-4 text-emerald-400"/>CONTACT_EMAIL</span>
-                  <span className="flex items-center gap-2"><Phone className="h-4 w-4 text-emerald-400"/>Optional phone or SMS</span>
+                  <span className="flex items-center gap-2"><Mail className="h-4 w-4 text-emerald-400"/>sales@digitalcreationswindsor.xyz</span>
+                  
+                  <span className="flex items-center gap-2">
+                    <MessageCircle className="h-4 w-4 text-emerald-400"/>
+                    <a href="https://business.facebook.com/latest/inbox/messenger?asset_id=642373175632942&business_id=1224393922738685&selected_item_id=819080267&thread_type=FB_MESSAGE&mailbox_id=642373175632942" target="_blank" rel="noopener noreferrer" className="hover:underline">Messenger: @digitalcreationswindsor</a>
+                  </span>
                 </div>
                 <Button asChild variant="outline" className="border-neutral-700 bg-neutral-900 hover:bg-neutral-800">
                   <a href="mailto:info@digitalcreationswindsor.xyz?subject=Setup%20my%20automation&body=Here%20are%20the%20tools%20I%20use:%20Stripe/PayPal/Drive/Gmail/Slack%20...">Write an email</a>
@@ -230,7 +234,7 @@ export default function Landing() {
       <footer className="border-t border-neutral-800/70 bg-neutral-950">
         <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-400">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div>© {new Date().getFullYear()} Colin Automations. All rights reserved.</div>
+            <div>© {new Date().getFullYear()} Digital Creations Windsor. All rights reserved.</div>
             <div className="flex items-center gap-4">
               <a className="hover:text-emerald-400" href="#privacy">Privacy</a>
               <a className="hover:text-emerald-400" href="#tos">Terms</a>
@@ -246,7 +250,7 @@ function DemoCard(){
   return (
     <Card className="border-neutral-800 bg-neutral-900/60">
       <CardHeader>
-        <CardTitle className="text-lg">Automation flow (example)</CardTitle>
+        <CardTitle className="text-lg text-emerald-400">Automation flow (example)</CardTitle>
       </CardHeader>
       <CardContent className="space-y-3 text-neutral-300">
         <Step n={1} text="Fetch Stripe/PayPal transactions nightly" />
