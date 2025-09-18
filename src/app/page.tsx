@@ -1,6 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Check, Zap, Shield, Banknote, FileText, Cpu, Building2, Mail, Phone, MessageCircle } from "lucide-react";
+import { Check, Zap, Shield, FileText, Cpu, Building2, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
