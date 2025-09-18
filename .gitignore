@@ -1,2 +1,8 @@
 node_modules/
 --import-alias
+.next
+.github/
+.github/chatmodes
+.github/instructions
+.github/prompts
+.github/workflows
