@@ -1,0 +1,266 @@
+// app/realtors/page.tsx
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { Check, TimerReset, Calendar, Shield, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+export const metadata: Metadata = {
+  title: "Realtor Content Pack • Digital Creations Windsor",
+  description:
+    "30 days of realtor content delivered in 72 hours: scripts, captions, thumbnails, and Canva templates. Built for Windsor–Essex agents.",
+  alternates: { canonical: "/realtors" },
+};
+
+const AGENT_IMG = "/images/realtor-agent.png"; // transparent PNG (top-right mascot)
+
+function Bullet({ children }: { children: React.ReactNode }) {
+  return (
+    <li className="flex items-start gap-3 text-white/85">
+      <Check className="mt-0.5 h-4 w-4 text-emerald-400" />
+      <span>{children}</span>
+    </li>
+  );
+}
+
+export default function Page() {
+  return (
+    <main className="min-h-screen bg-neutral-950 text-neutral-100">
+      {/* Simple top bar */}
+      <header className="border-b border-white/10">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="inline-block h-3 w-3 rounded-full bg-emerald-400" />
+            <span className="font-semibold">Digital Creations Windsor</span>
+          </Link>
+          <nav className="hidden gap-6 text-sm md:flex">
+            <Link href="/" className="hover:text-emerald-400">Home</Link>
+            <Link href="/#pricing" className="hover:text-emerald-400">Pricing</Link>
+          </nav>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        {/* brand wash */}
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(70rem_35rem_at_right,rgba(57,255,20,.08),transparent_60%)]" />
+
+        {/* mascot image (transparent) */}
+        <Image
+          src={AGENT_IMG}
+          alt="Realtor mascot"
+          width={640}
+          height={640}
+          priority
+          className="
+            pointer-events-none select-none
+            absolute -top-4 right-[-24px] md:-top-6 md:right-4 lg:-top-10 lg:right-10
+            w-[300px] md:w-[420px] lg:w-[560px]
+            z-18
+            drop-shadow-[0_30px_80px_rgba(0,0,0,0.45)]
+            hidden sm:block
+          "
+        />
+
+        <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+          {/* Left: headline & CTAs */}
+          <div className="relative z-20">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-black/40 px-3 py-1 text-xs text-white/70">
+              <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              72-hour turnaround · Windsor–Essex Realtors™
+            </div>
+
+            <h1 className="text-4xl font-extrabold leading-[1.05] md:text-6xl">
+              30 Days of <br />
+              Realtor Content. <br />
+              <span className="text-emerald-400">Delivered in 72 Hours.</span>
+            </h1>
+
+            <p className="mt-5 max-w-xl text-white/75">
+              Scripts. Captions. Thumbnails. Canva templates. You post or we
+              schedule. Built for agents who are done staring at a blank caption.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Button asChild className="bg-emerald-500 text-black hover:bg-emerald-400">
+                <a href="https://calendly.com/colincartwright1974" target="_blank" rel="noreferrer">
+                  Book 10-min Fit Call
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-white/15 hover:bg-white/10">
+                <a href="#whats-included">See what you get</a>
+              </Button>
+            </div>
+
+            <div className="mt-6 flex items-center gap-5 text-sm text-white/60">
+              <span className="inline-flex items-center gap-2"><Shield className="h-4 w-4" />No lock-in</span>
+              <span className="inline-flex items-center gap-2"><Zap className="h-4 w-4" />Proofed and ready</span>
+            </div>
+
+            <p className="mt-5 text-xs text-white/55">
+              <span className="text-emerald-400">✓</span> Guarantee: If you don’t post 6+ assets this month, we add 6 more free.
+            </p>
+          </div>
+
+          {/* Right: glass card (in front) */}
+          <div className="relative z-20">
+            <Card className="rounded-3xl border border-white/10 bg-black/45  shadow-2xl">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-xl">Your 30-Day Content Pack</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-sm">
+                  <Bullet>12 short video scripts (hooks that convert scroll into showings)</Bullet>
+                  <Bullet>12 SEO-tuned captions (Windsor neighborhoods &amp; keywords)</Bullet>
+                  <Bullet>12 thumbnails/covers ready for Reels/TikTok/Shorts</Bullet>
+                  <Bullet>4 reusable Canva templates (reel cover, stat card, carousel, testimonial)</Bullet>
+                  <Bullet>Posting calendar + 60-sec Loom walkthrough</Bullet>
+                </ul>
+
+                <div className="mt-6 grid grid-cols-2 gap-3 text-xs text-white/70">
+                  <div className="flex items-center gap-2"><TimerReset className="h-4 w-4" /> 72-hour turnaround</div>
+                  <div className="flex items-center gap-2"><Calendar className="h-4 w-4" /> 30-day plan included</div>
+                </div>
+
+                <div className="mt-6 grid grid-cols-2 gap-3">
+                  <Button asChild className="w-full bg-emerald-500 text-black hover:bg-emerald-400">
+                    <a href="https://buy.stripe.com/6oU7sLdpKf667Jr7735AQ00" target="_blank" rel="noreferrer">
+                      Buy $349
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="w-full border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10"
+                  >
+                    <a href="https://buy.stripe.com/9B628radyaPQ5Bjbnj5AQ01" target="_blank" rel="noreferrer">
+                      We Schedule — $599
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* subtle right-edge vignette to blend the mascot */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-[11] w-[45vw] bg-gradient-to-l from-black/35 via-black/10 to-transparent" />
+      </section>
+
+      {/* WHAT'S INCLUDED */}
+      <section id="whats-included" className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-2xl font-bold md:text-3xl">What you’ll receive</h2>
+          <p className="mt-2 max-w-2xl text-white/70">
+            Everything lands in a single shared folder: scripts, captions (with hashtags),
+            thumbnails, and editable Canva templates. You can post yourself or pick the
+            scheduled option and we’ll queue it for you.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {[
+              ["Scripts that book showings", "Hooks tuned for Windsor–Essex (Riverside, LaSalle, Tecumseh, Walkerville)."],
+              ["Captions that rank", "Neighborhood keywords + CTA (“DM TOUR”) baked in."],
+              ["Thumbnails that pop", "Consistent style for Reels/Shorts + stories covers."],
+            ].map(([title, blurb]) => (
+              <Card key={title} className="border-white/10 bg-neutral-900/40">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-lg text-white">{title}</CardTitle>
+                </CardHeader>
+                <CardContent className="text-white/75">{blurb}</CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-2xl font-bold md:text-3xl">FAQ</h2>
+
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <Card className="border-white/10 bg-neutral-900/40">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base text-white">How fast is “72 hours”?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-white/75">
+                Clock starts after your fit call & assets (logo/colors) are in. Most packs
+                deliver in 48–72 hours.
+              </CardContent>
+            </Card>
+
+            <Card className="border-white/10 bg-neutral-900/40">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base text-white">Do you post for me?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-white/75">
+                If you choose **We Schedule — $599**, we queue your month on IG/FB/LinkedIn
+                (you approve captions).
+              </CardContent>
+            </Card>
+
+            <Card className="border-white/10 bg-neutral-900/40">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base text-white">What if I’m outside Windsor?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-white/75">
+                No problem—we localize to your farm areas and keywords. Windsor–Essex is just our home base.
+              </CardContent>
+            </Card>
+
+            <Card className="border-white/10 bg-neutral-900/40">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base text-white">Refunds?</CardTitle>
+              </CardHeader>
+              <CardContent className="text-white/75">
+                If we materially miss the deliverables and can’t fix it within 7 days,
+                we’ll refund the undelivered portion. Simple.
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="grid grid-cols-1 items-center gap-6 rounded-3xl border border-white/10 bg-neutral-900/40 p-6 md:grid-cols-3">
+            <div className="md:col-span-2">
+              <h3 className="text-xl font-semibold">Ready to stop staring at a blank caption?</h3>
+              <p className="mt-2 text-white/70">
+                Book a quick call or grab the pack now—delivery in 72 hours.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 md:justify-self-end">
+              <Button asChild className="bg-emerald-500 text-black hover:bg-emerald-400">
+                <a href="https://calendly.com/colincartwright1974" target="_blank" rel="noreferrer">
+                  Book 10-min Call
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border-emerald-500/40 text-emerald-400 hover:bg-emerald-500/10">
+                <a href="https://buy.stripe.com/6oU7sLdpKf667Jr7735AQ00" target="_blank" rel="noreferrer">
+                  Buy $349
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* footer mini */}
+      <footer className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-white/60">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <div>© {new Date().getFullYear()} Digital Creations Windsor</div>
+            <div className="flex items-center gap-4">
+              <Link className="hover:text-emerald-400" href="/privacy">Privacy</Link>
+              <Link className="hover:text-emerald-400" href="/terms">Terms</Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+  );
+}
