@@ -6,3 +6,17 @@ node_modules/
 .github/instructions
 .github/prompts
 .github/workflows
+# build/cache
+.next/
+out/
+node_modules/
+*.tsbuildinfo
+
+# editor/backup junk
+*.swp
+*.tmp
+*.bak
+*~ 
+
+# local backups you mentioned
+src/app/page.tsx.white version

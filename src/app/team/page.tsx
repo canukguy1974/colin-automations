@@ -9,11 +9,11 @@ import Link from "next/link";
 export const metadata = {
   title: "Meet the Team — Digital Creations Windsor",
   description:
-    "Get to know the people behind Digital Creations Windsor — builders, hustlers, and automation nerds.",
+    "Get to know the people behind Digital Creations Windsor — developers, project managers, and automation specialists.",
   openGraph: {
     title: "Meet the Team — Digital Creations Windsor",
     description:
-      "Get to know the people behind Digital Creations Windsor — builders, hustlers, and automation nerds.",
+      "Get to know the people behind Digital Creations Windsor — developers, project managers, and automation specialists.",
     url: "/team",
     type: "profile",
   },
@@ -53,6 +53,21 @@ const team = [
 export default function TeamPage() {
   return (
     <main className="min-h-screen bg-black text-zinc-100">
+      {/* Nav */}
+      <header className="sticky top-0 z-40 border-b border-zinc-800/70 backdrop-blur supports-[backdrop-filter]:bg-black/70">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="inline-block h-3 w-3 rounded-full bg-emerald-400" />
+            <span className="font-semibold tracking-tight">Digital Creations (windsor)</span>
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/" className="text-sm hover:opacity-80">
+              Home
+            </Link>
+          </div>
+        </div>
+      </header>
+
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 opacity-40 blur-3xl" aria-hidden>
           <div className="mx-auto h-[40rem] w-[40rem] rounded-full bg-emerald-500/20 translate-x-1/4 -translate-y-1/4" />

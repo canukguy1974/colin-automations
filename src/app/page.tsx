@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Zap, Shield, FileText, Cpu, Building2, Mail, MessageCircle } from "lucide-react";
+import { Check, Zap, Shield, FileText, Cpu, Building2, Mail, MessageCircle, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -132,7 +132,7 @@ export default function Page() {
           <h2 className="text-2xl font-bold md:text-3xl">What we do</h2>
           <p className="mt-2 max-w-prose text-neutral-300">Two offers, zero fluff. Pick your lane—or we’ll pick it with you.</p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card className="border-neutral-800 bg-neutral-900/40">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-xl text-white">
@@ -171,6 +171,29 @@ export default function Page() {
                 </CardContent>
               </Card>
             </Link>
+
+            <Card className="border-neutral-800 bg-neutral-900/40">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-xl text-white">
+                  <Briefcase className="h-5 w-5" style={{ color: BRAND.primary }} /> Company Update
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-neutral-300">
+                <div className="text-sm">
+                  <p className="font-semibold text-white mb-2">Digital Creations Welcomes New COO</p>
+                  <p className="mb-3">We're pleased to announce the appointment of <span className="font-semibold text-white">Jessica Palmer</span> as Chief Operations Officer.</p>
+                  <p className="mb-3 text-xs leading-relaxed">Jessica brings deep expertise in operational strategy and scalable system design. As COO, she will oversee daily operations, ensure delivery excellence, and build systems for sustainable growth.</p>
+                  <p className="text-xs italic">"Jessica's operational clarity and strategic foresight will help us scale responsibly while maintaining the creativity and agility that define who we are." — Colin Cartwright, CEO</p>
+                  <div className="mt-4 pt-3 border-t border-neutral-700 text-xs">
+                    <p className="mb-1">Contact Jessica:</p>
+                    <p className="flex items-center gap-1">
+                      <Mail className="h-3 w-3" style={{ color: BRAND.primary }} />
+                      <a href="mailto:jessica.palmer@digitalcreationswindsor.xyz" className="hover:underline" style={{ color: BRAND.primary }}>jessica.palmer@digitalcreationswindsor.xyz</a>
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
