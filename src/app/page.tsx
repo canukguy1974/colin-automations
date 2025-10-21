@@ -46,6 +46,7 @@ export default function Page() {
             <a href="#pricing" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Pricing</a>
             <a href="#faq" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>FAQ</a>
             <Link href="/realtors" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Realtors</Link>
+            <Link href="/team" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Meet the Team</Link>
             <a href="#contact" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Contact</a>
           </nav>
           <Button
