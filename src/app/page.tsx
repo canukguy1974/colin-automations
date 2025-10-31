@@ -43,7 +43,7 @@ useEffect(() => {
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
       {/* Nav */}
-      // REPLACE your current <header>...</header> with this:
+      {/* REPLACE your current <header>...</header> with this: */}
 <header className="sticky top-0 z-50 border-b border-neutral-800/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70">
   <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
     <a href="#home" className="flex items-center gap-2">
