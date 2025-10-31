@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Check, Zap, Shield, FileText, Cpu, Building2, Mail, MessageCircle, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 
 const BRAND = {
   primary: "#39FF14", // neon green
@@ -32,32 +33,83 @@ function Faq({ q, a }: { q: string; a: string }) {
 }
 
 export default function Page() {
+  const [menuOpen, setMenuOpen] = useState(false);
+useEffect(() => {
+  const root = document.documentElement;
+  if (menuOpen) root.classList.add("overflow-hidden");
+  else root.classList.remove("overflow-hidden");
+  return () => root.classList.remove("overflow-hidden");
+}, [menuOpen]);
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
       {/* Nav */}
-      <header className="sticky top-0 z-40 border-b border-neutral-800/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <a href="#home" className="flex items-center gap-2">
-            <span className="inline-block h-3 w-3 rounded-full" style={{ backgroundColor: BRAND.primary }} />
-            <span className="font-semibold tracking-tight">Digital Creations (windsor)</span>
-          </a>
-          <nav className="hidden gap-6 text-sm md:flex">
-            <a href="#services" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Services</a>
-            <a href="#pricing" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Pricing</a>
-            <a href="#faq" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>FAQ</a>
-            <Link href="/realtors" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Realtors</Link>
-            <Link href="/team" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Meet the Team</Link>
-            <a href="#contact" className="hover:opacity-80" style={{ color: 'inherit' }} onMouseEnter={(e) => e.currentTarget.style.color = BRAND.primary} onMouseLeave={(e) => e.currentTarget.style.color = 'inherit'}>Contact</a>
-          </nav>
-          <Button
-            asChild
-            className="text-black font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(57,255,20,0.6)] hover:scale-105"
-            style={{ backgroundColor: BRAND.primary }}
-          >
-            <a href="#contact">Get Started</a>
-          </Button>
-        </div>
-      </header>
+      // REPLACE your current <header>...</header> with this:
+<header className="sticky top-0 z-50 border-b border-neutral-800/70 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/70">
+  <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="#home" className="flex items-center gap-2">
+      <span className="inline-block h-3 w-3 rounded-full" style={{ backgroundColor: BRAND.primary }} />
+      <span className="font-semibold tracking-tight">Digital Creations (windsor)</span>
+    </a>
+
+    {/* desktop nav */}
+    <nav className="hidden gap-6 text-sm md:flex">
+      <a href="#services" className="hover:opacity-80">Services</a>
+      <a href="#pricing" className="hover:opacity-80">Pricing</a>
+      <a href="#faq" className="hover:opacity-80">FAQ</a>
+      <Link href="/realtors" className="hover:opacity-80">Realtors</Link>
+      <Link href="/team" className="hover:opacity-80">Meet the Team</Link>
+      <a href="#contact" className="hover:opacity-80">Contact</a>
+    </nav>
+
+    {/* CTA (desktop) */}
+    <Button
+      asChild
+      className="hidden md:inline-flex text-black font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(57,255,20,0.6)] hover:scale-105"
+      style={{ backgroundColor: BRAND.primary }}
+    >
+      <a href="#contact">Get Started</a>
+    </Button>
+
+    {/* hamburger (mobile) */}
+    <button
+      aria-label="Toggle menu"
+      aria-expanded={menuOpen}
+      onClick={() => setMenuOpen(v => !v)}
+      className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-neutral-200 hover:bg-white/10"
+    >
+      <svg className={menuOpen ? "hidden" : "block"} width="24" height="24" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+      <svg className={menuOpen ? "block" : "hidden"} width="24" height="24" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  {/* mobile overlay + panel */}
+  <div className={`md:hidden ${menuOpen ? "pointer-events-auto" : "pointer-events-none"}`}>
+    {/* backdrop */}
+    <div
+      onClick={() => setMenuOpen(false)}
+      className={`fixed inset-0 z-50 bg-black/60 transition-opacity duration-200 ${menuOpen ? "opacity-100" : "opacity-0"}`}
+    />
+    {/* panel */}
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 h-[100dvh] bg-neutral-950 border-b border-neutral-800
+      transition-transform duration-200 ${menuOpen ? "translate-y-0" : "-translate-y-full"}`}
+    >
+      <div className="px-6 pt-20 pb-10 space-y-6 text-lg">
+        <a href="#services" onClick={() => setMenuOpen(false)} className="block">Services</a>
+        <a href="#pricing" onClick={() => setMenuOpen(false)} className="block">Pricing</a>
+        <a href="#faq" onClick={() => setMenuOpen(false)} className="block">FAQ</a>
+        <Link href="/realtors" onClick={() => setMenuOpen(false)} className="block">Realtors</Link>
+        <Link href="/team" onClick={() => setMenuOpen(false)} className="block">Meet the Team</Link>
+        <a href="#contact" onClick={() => setMenuOpen(false)} className="inline-block rounded-xl bg-emerald-400 px-4 py-2 font-semibold text-neutral-900">Get Started</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
 
       {/* Hero (bot layered behind, flow card in front) */}
       <section id="home" className="relative overflow-hidden">
