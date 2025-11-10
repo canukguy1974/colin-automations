@@ -58,6 +58,7 @@ useEffect(() => {
       <a href="#faq" className="hover:opacity-80">FAQ</a>
       <Link href="/realtors" className="hover:opacity-80">Realtors</Link>
       <Link href="/team" className="hover:opacity-80">Meet the Team</Link>
+      <Link href="/shop_pack" className="hover:opacity-80">Ai Solution for Shops</Link>
       <a href="#contact" className="hover:opacity-80">Contact</a>
     </nav>
 
