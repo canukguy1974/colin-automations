@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Digital Creations Windsor",
-  description: "Your partner in digital transformation",
+  description: "Ai solutions for modern businesses",
 };
 
 export default function RootLayout({
